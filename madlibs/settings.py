@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-gppqc6kpb6!-g7a3=ey6u(c_=%g6f-5&!cugtn&iw04m)dy(j5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["madlibs-api-gymhn.ondigitalocean.app", "localhost"]
+ALLOWED_HOSTS = ["madlibs-api-gymhn.ondigitalocean.app", "127.0.0.1"]
 
 
 # Application definition
