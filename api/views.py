@@ -7,3 +7,4 @@ from .serializers import StorySerializer
 class StoryViewSet(viewsets.ModelViewSet):
     queryset = Story.objects.filter(active=True)
     serializer_class = StorySerializer
+    http_method_names = ["get"]
