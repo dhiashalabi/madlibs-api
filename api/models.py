@@ -2,8 +2,17 @@ from django.db import models
 from django.utils import timezone
 
 
+class Language(models.Model):
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.name
+
+
 class Story(models.Model):
     title = models.CharField(max_length=100)
+    language = models.ManyToManyField(Language)
     text = models.TextField()
     active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -22,5 +31,9 @@ class Story(models.Model):
         else:
             return f"{delta.seconds} seconds ago"
 
+    @property
+    def get_languages(self):
+        return ([language.name for language in self.language.all()])
+    
     def __str__(self):
         return self.title
