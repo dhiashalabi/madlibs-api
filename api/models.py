@@ -33,7 +33,7 @@ class Story(models.Model):
 
     @property
     def get_languages(self):
-        return ([language.name for language in self.language.all()])
+        return ", ".join([f"{language.name}" for language in self.language.all()])
     
     def __str__(self):
         return self.title
